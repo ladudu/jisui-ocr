@@ -4,6 +4,11 @@
     jisui ocr --engine paddle-vl
     jisui ocr --engine claude
     jisui eval                           # 对照 data/ground_truth → results/summary-*.csv
+
+横排 / 竖排用不同的数据集目录，用 --pages / --out / --gt / --outputs / --results 指定，
+例如横排：
+    jisui ocr --engine ndlocr --pages data/horizontal/pages --out outputs/horizontal
+    jisui eval --gt data/horizontal/ground_truth --outputs outputs/horizontal --results results/horizontal
 """
 
 import argparse

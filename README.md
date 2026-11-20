@@ -8,7 +8,8 @@
 
 | フェーズ | 内容 | 状態 |
 |---|---|---|
-| 0 | OCR の比較（NDLOCR-Lite / PaddleOCR-VL / Claude、CER で評価） | 進行中 |
+| 0a | OCR の比較：横書きの本（NDLOCR-Lite / PaddleOCR-VL / Claude、CER で評価） | 進行中 |
+| 0b | OCR の比較：縦書きの本（同上、横書きとの差も比較） | 未着手 |
 | 1 | 写真 → テキスト（透視補正、見開き分割、ヘッダー除去） | 未着手 |
 | 2 | 動画 → 各ページのベストフレーム（静止区間検出、鮮明度、重複除去） | 未着手 |
 | 3 | 縦書き EPUB 出力、LLM による差分校正、校正画面 | 未着手 |
@@ -17,8 +18,8 @@
 
 ```powershell
 uv sync --extra cloud
-uv run jisui ocr --engine ndlocr      # data/pages/*.jpg → outputs/ndlocr/
-uv run jisui eval                     # data/ground_truth/*.txt と比較 → results/summary-*.csv
+uv run jisui ocr --engine ndlocr --pages data/horizontal/pages --out outputs/horizontal
+uv run jisui eval --gt data/horizontal/ground_truth --outputs outputs/horizontal --results results/horizontal
 ```
 
 セットアップの詳細は [docs/stage0-guide.md](docs/stage0-guide.md)（中国語）を参照してください。
