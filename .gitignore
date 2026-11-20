@@ -1,0 +1,18 @@
+# 页面图片、视频、ground truth、OCR 结果都可能来自有版权的书 → 一律不提交
+data/
+outputs/
+# 评测结果 CSV 只含数字，可以提交；如有原文片段请勿提交
+results/*.txt
+
+# 外部工具（NDLOCR-Lite 的 clone 等）
+vendor/
+
+# Python / uv
+.venv/
+.venv-*/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 机密
+.env
